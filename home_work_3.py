@@ -4,17 +4,20 @@ import datetime
 from datetime import datetime
 
 def get_days_from_today():
-    date_input = input("Ведіть дату у форматі РРРР-ММ-ДД: ") 
-    now_date = datetime.today()
-    date_input_convert = datetime.strptime(date_input, "%Y-%m-%d")
-    diff_date = (now_date - date_input_convert).days
-    if diff_date > 0:
-        print(f"З ціеї дати пройшло {diff_date} днів.")
-    else:
-        print(f"До цієї дати залишилось {diff_date} днів.") 
-    
+    while True:    
+        try:
+            date_input = input("Ведіть дату у форматі РРРР-ММ-ДД: ") 
+            now_date = datetime.today()
+            date_input_convert = datetime.strptime(date_input, "%Y-%m-%d")
+            diff_date = (now_date - date_input_convert).days
+            if diff_date > 0:
+                print(f"З ціеї дати пройшло {diff_date} днів.")
+            else:
+                print(f"До цієї дати залишилось {diff_date} днів.")
+            break 
+        except ValueError:
+            print("Невірний формат дати!")
 get_days_from_today()
-
 
 
 # Друге завдання 
